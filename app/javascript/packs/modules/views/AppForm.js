@@ -4,10 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 import LayoutBody from '../components/LayoutBody';
 import Paper from '../components/Paper';
 
+import curvy_lines from '../../static/appCurvyLines.png';
+
 const styles = theme => ({
   root: {
     display: 'flex',
-    backgroundImage: 'url(/static/appCurvyLines.png)',
+    backgroundImage: curvy_lines,
     backgroundRepeat: 'no-repeat',
   },
   paper: {

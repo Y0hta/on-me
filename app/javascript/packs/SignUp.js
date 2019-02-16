@@ -15,6 +15,7 @@ import RFTextField from './modules/form/RFTextField';
 import FormButton from './modules/form/FormButton';
 import FormFeedback from './modules/form/FormFeedback';
 import compose from './modules/utils/compose';
+import axios from 'axios';
 
 const styles = theme => ({
   form: {
@@ -35,7 +36,7 @@ class SignUp extends React.Component {
   };
 
   validate = values => {
-    const errors = required(['firstName', 'lastName', 'email', 'password'], values, this.props);
+    const errors = required(['name', 'email', 'password'], values, this.props);
 
     if (!errors.email) {
       const emailError = email(values.email, values, this.props);
@@ -47,7 +48,20 @@ class SignUp extends React.Component {
     return errors;
   };
 
-  handleSubmit = () => {};
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let that = this
+    axios.post('/users', {
+      user: {
+        name: this.state.name,
+        email: this.stete.email,
+        password: this.state.password
+      }
+    })
+      .catch(function(error){
+        console.log(error)
+      })
+  };
 
   render() {
     const { classes } = this.props;
@@ -62,7 +76,7 @@ class SignUp extends React.Component {
               アカウント作成
             </Typography>
             <Typography variant="body2" align="center">
-              <Link href="/sign-in" underline="always">
+              <Link href="/users/sign_in" underline="always">
                 すでにアカウントを作成されていますか？
               </Link>
             </Typography>
@@ -82,10 +96,11 @@ class SignUp extends React.Component {
                       autoComplete="fname"
                       fullWidth
                       label="名前"
-                      name="firstName"
+                      name="name"
                       required
                     />
                   </Grid>
+                  {/*
                   <Grid item xs={12} sm={6}>
                     <Field
                       component={RFTextField}
@@ -96,6 +111,7 @@ class SignUp extends React.Component {
                       required
                     />
                   </Grid>
+                  */}
                 </Grid>
                 <Field
                   autoComplete="email"
