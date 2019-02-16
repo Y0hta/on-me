@@ -48,9 +48,9 @@ class SignUp extends React.Component {
     return errors;
   };
 
+  /*
   handleSubmit = (e) => {
     e.preventDefault();
-    let that = this
     axios.post('/users', {
       user: {
         name: this.state.name,
@@ -61,6 +61,14 @@ class SignUp extends React.Component {
       .catch(function(error){
         console.log(error)
       })
+  };
+  */
+
+  hadleSubmit(values) {
+    console.log(values)
+    const name = values.name;
+    const email = values.email;
+    const password = values.password;
   };
 
   render() {
