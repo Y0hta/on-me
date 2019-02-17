@@ -6,9 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   # GET /resource/sign_up
-  def new
-    super
-  end
+  #def new
+  #  super
+  #end
 
   # POST /resource
   def create

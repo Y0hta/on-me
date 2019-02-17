@@ -1,5 +1,4 @@
 import withRoot from './modules/withRoot';
-// --- Post bootstrap -----
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -48,7 +47,6 @@ class SignUp extends React.Component {
     return errors;
   };
 
-  /*
   handleSubmit = (e) => {
     e.preventDefault();
     axios.post('/users', {
@@ -61,14 +59,6 @@ class SignUp extends React.Component {
       .catch(function(error){
         console.log(error)
       })
-  };
-  */
-
-  hadleSubmit(values) {
-    console.log(values)
-    const name = values.name;
-    const email = values.email;
-    const password = values.password;
   };
 
   render() {
@@ -103,7 +93,7 @@ class SignUp extends React.Component {
                       component={RFTextField}
                       autoComplete="fname"
                       fullWidth
-                      label="名前"
+                      label="ユーザーネーム"
                       name="name"
                       required
                     />

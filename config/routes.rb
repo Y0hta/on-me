@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   #devise_for :users
-  devise_for :users, :controllers => {
-    sessions: 'users/sessions', 
-    registrations: 'users/registrations'
-  }
+  #devise_for :users, :controllers => {
+  #  sessions: 'users/sessions', 
+  #  registrations: 'users/registrations'
+  #}
   root to: 'home#index'
   get '/', to: 'home#index'
-  #get '/*path', to: 'home#index'
+  get '/*path', to: 'home#index'
+  post 'users', to: 'users/registrations#create'
 end
