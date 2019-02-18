@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   #}
   root to: 'home#index'
   get '/', to: 'home#index'
-  get '/*path', to: 'home#index'
-  post 'users', to: 'users/registrations#create'
+  get '/users/sign_in', to: 'home#index'
+  get '/users/sign_up', to: 'home#index'
+  get '/terms', to: 'home#index'
+  post '/users', to: 'users/registrations#create'
+  get '/dashboard', to: 'dashboard#index'
 end

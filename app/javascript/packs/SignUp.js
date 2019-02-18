@@ -47,13 +47,13 @@ class SignUp extends React.Component {
     return errors;
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit = values => {
+    window.alert(JSON.stringify(values, 0, 2));
     axios.post('/users', {
       user: {
-        name: this.state.name,
-        email: this.stete.email,
-        password: this.state.password
+        name: values.name,
+        email: values.email,
+        password: values.password
       }
     })
       .catch(function(error){
@@ -84,7 +84,7 @@ class SignUp extends React.Component {
             subscription={{ submitting: true }}
             validate={this.validate}
           >
-            {({ handleSubmit, submitting }) => (
+            {({ handleSubmit, submitting, form, values }) => (
               <form onSubmit={handleSubmit} className={classes.form} noValidate>
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={6}>
@@ -95,21 +95,11 @@ class SignUp extends React.Component {
                       fullWidth
                       label="ユーザーネーム"
                       name="name"
+                      placeholder="username"
+                      type="text"
                       required
                     />
                   </Grid>
-                  {/*
-                  <Grid item xs={12} sm={6}>
-                    <Field
-                      component={RFTextField}
-                      autoComplete="lname"
-                      fullWidth
-                      label="氏名"
-                      name="lastName"
-                      required
-                    />
-                  </Grid>
-                  */}
                 </Grid>
                 <Field
                   autoComplete="email"
@@ -146,6 +136,7 @@ class SignUp extends React.Component {
                   disabled={submitting || sent}
                   color="secondary"
                   fullWidth
+                  type="submit"
                 >
                   {submitting || sent ? 'In progress…' : 'Sign Up'}
                 </FormButton>
