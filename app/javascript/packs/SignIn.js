@@ -54,7 +54,9 @@ class SignIn extends React.Component {
 
     return (
       <React.Fragment>
+        {/*
         <AppAppBar />
+        */}
         <AppForm>
           <React.Fragment>
             <Typography variant="h3" gutterBottom marked="center" align="center">

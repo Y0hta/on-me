@@ -18,7 +18,9 @@ const md = `
 function Terms() {
   return (
     <React.Fragment>
+    {/*
     <AppAppBar />
+    */}
     <LayoutBody margin marginBottom>
     <Typography variant="h3" gutterBottom marked="center" align="center">
     Site Credits

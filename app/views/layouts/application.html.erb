@@ -11,20 +11,20 @@
 
   <body>
     <!-- Nav -->
-    <% if request.fullpath != '/' %>
-      <%= render 'layouts/navbar' %>
-    <% end %>
+    <%= render 'layouts/navbar' %>
 
     <!-- Main container -->
     <%= yield %>
 
     <!-- Footer -->
-    <footer class="container-fluid bg-light">
-      <div class="row">
-        <div class="col-4 d-flex">
-          <p class="text-secondary">© 2019 Copyright Text</p>
+    <% if request.fullpath != '/' %>
+      <footer class="container-fluid bg-light">
+        <div class="row">
+          <div class="col-4 d-flex">
+            <p class="text-secondary">© 2019 Copyright Text</p>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    <% end %>
   </body>
 </html>
