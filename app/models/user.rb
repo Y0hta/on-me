@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # Search method
   def self.search(keyword)
     if keyword
-      where(["name LIKE ?", "%#{keyword}%"])
+      where(["lower(name) LIKE ?", "%#{keyword.downcase}%"]).or(where(["lower(occupation) LIKE ?", "%#{keyword.downcase}%"]))
     else
       all
     end

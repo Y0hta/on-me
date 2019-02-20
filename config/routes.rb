@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #get '/users/sign_in', to: 'home#index'
   #get '/users/sign_up', to: 'home#index'
   get '/terms', to: 'home#index'
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:show, :edit, :update]
   get '/dashboard', to: 'dashboard#index'
   get '/explore', to: 'explore#index'
   get '/settings', to: 'settings#edit', as: :edit_settings

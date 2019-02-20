@@ -26,7 +26,8 @@
               <% end %>
             </h6>
           </div>
-          <p class="card-text ml-2 pb-4">User introduction</p>
+          <p class="card-text ml-2 pb-2"><%= user.introduction %></p>
+          <a href="<%= user_path(user) %>" class="stretched-link"></a>
         </div>
       </div>
     <% end %>
