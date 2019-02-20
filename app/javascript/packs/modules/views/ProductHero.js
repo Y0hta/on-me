@@ -54,7 +54,9 @@ function ProductHero(props) {
         登録する
       </Button>
       <Typography variant="body2" color="inherit" className={classes.more}>
-        クリエイターを探す
+        <Link href="/explore" color="inherit">
+          クリエイターを探す
+        </Link>
       </Typography>
     </ProductHeroLayout>
   );

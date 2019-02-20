@@ -1,2 +1,81 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<main class="container">
+  <div class="row justify-content-center my-4">
+    <h1>Dashboard</h1>
+    <div class="w-100"></div>
+    <div class="col-lg">
+      <ul class="nav nav-tabs nav-fill">
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">概要</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-info active" href="<%= edit_user_path(current_user) %>">ユーザー編集</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/settings">各種設定</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <span>ログアウト</span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="w-100"></div>
+    <% if alert != nil %>
+    <div class="alert alert-warning alert-dismissible fade show mt-2 mb-0" role="alert">
+      <%= alert %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% end %>
+    <div class="w-100"></div>
+    <div class="card bg-light shadow ml-3 my-5" style="width: 46rem;">
+      <div class="card-body">
+        <h3>User edit</h3>
+        <!-- Form section -->
+        <%= form_with model: @user do |f| %>
+          <%= render "layouts/error_messages", model: f.object %>
+          <div class="row">
+            <div class="col ml-3">
+              <div class="form-group">
+                <%= f.label :name %><br>
+                <%= f.text_field :name %>
+              </div>
+              <div class="form-group">
+                <%= f.label :email %><br>
+                <%= f.text_field :email %>
+              </div>
+              <div class="form-group">
+                <%= f.label :occupation %><br>
+                <%= f.text_field :occupation %>
+              </div>
+              <div class="form-group">
+                <%= f.label :introduction %><br>
+                <%= f.text_area :introduction %>
+              </div>
+            </div>
+            <div class="col">
+              <br>
+              <div class="form-group">
+                <%= f.label :image %><br>
+                <div class="user-image">
+                <%= attachment_image_tag @user, :image, :fill, 100, 100, format: "jpg", :size => "100x100", fallback: "no-user-image.jpg" %>
+                </div><br>
+                <%= f.attachment_field :image, placeholder: "profile_image" %>
+              </div>
+              <br>
+              <br>
+              <div class="form-action">
+                <%= f.submit "Update Profile", class: "btn btn-lg btn-primary" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% 12.times do |br| %>
+    <br>
+  <% end %>
+</main>

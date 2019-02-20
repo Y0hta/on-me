@@ -67,10 +67,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Authentication
 gem 'devise'
 
+# Bootstrap
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.3.1'
+
+# Pagination
 gem 'kaminari'
+
+# Image attachment
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
+
+# ENV
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 

@@ -3,9 +3,15 @@
     <div class="w-100">
     </div>
     <div class="mx-auto order-0">
-      <a class="navbar-brand mx-auto font-weight-bold" href="<%= root_path %>">
-        GIVE ME A TREAT
-      </a>
+      <% if user_signed_in? %>
+        <a class="navbar-brand mx-auto font-weight-bold" href="/dashboard">
+          GIVE ME A TREAT
+        </a>
+      <% else %>
+        <a class="navbar-brand mx-auto font-weight-bold" href="<%= root_path %>">
+          GIVE ME A TREAT
+        </a>
+      <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -14,26 +20,26 @@
       <ul class="navbar-nav ml-auto">
         <!-- Common -->
         <li class="nav-item active">
-          <a class="nav-link" href="/dashboard">
-            SOMETHING
+          <a class="nav-link" href="/explore">
+            探す
           </a>
         </li>
         <!-- User section -->
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
-              <span>Log out</span>
-            <% end %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/explore">
+              MyPage
+            </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="<%= root_path %>">
-              Mypage
+            <a class="nav-link text-warning" href="/dashboard">
+              Dashboard
             </a>
           </li>
         <% else %>
           <li class="nav-item active">
             <a class="nav-link" href="<%= new_user_session_path %>">
-              SIGN IN
+              LOGIN
             </a>
           </li>
           <li class="nav-item active">

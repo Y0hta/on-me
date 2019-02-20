@@ -1,0 +1,26 @@
+<main class="container">
+  <div class="row justify-content-center my-4">
+    <h1>Dashboard</h1>
+    <div class="w-100"></div>
+    <div class="col-lg">
+      <ul class="nav nav-tabs nav-fill">
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">概要</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= edit_user_path(current_user) %>">ユーザー編集</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-info active" href="/settings">各種設定</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <span>ログアウト</span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h1>Settings#edit</h1>
+  <p>Find me in app/views/settings/edit.html.erb</p>
+</main>
