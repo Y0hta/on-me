@@ -13,14 +13,33 @@
         <li class="nav-item">
           <a class="nav-link text-info active" href="/settings">各種設定</a>
         </li>
-        <li class="nav-item">
-          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-            <span>ログアウト</span>
-          <% end %>
-        </li>
       </ul>
     </div>
   </div>
-  <h1>Settings#edit</h1>
-  <p>Find me in app/views/settings/edit.html.erb</p>
+  <div class="col-xl">
+    <div class="w-100"></div>
+    <% if alert != nil %>
+      <div class="alert alert-warning alert-dismissible fade show mt-2 mb-0" role="alert">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+    <div class="card bg-light shadow ml-3 my-5"> 
+      <div class="card-body">
+        <h5 class="ml-1">支払い方法</h5>
+        <a href="<%= @oauth_link %>" data-toggle="tooltip" data-placement="right" title="
+          Stripeはオンライン決済のプラットフォームです。アカウント登録されていない方はこちらから登録してください。
+          ">
+          <%= image_tag "light-on-light.png", class: "my-3" %>
+        </a>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
 </main>

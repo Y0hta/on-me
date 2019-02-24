@@ -26,10 +26,20 @@
               <% end %>
             </h6>
           </div>
-          <p class="card-text ml-2 pb-2"><%= user.introduction %></p>
+          <div class="w-100"></div>
+          <p class="card-text ml-2 pb-2">
+            <% if user.introduction %>
+              <%= user.introduction %>
+            <% else %>
+              <br />
+            <% end %>
+          </p>
           <a href="<%= user_path(user) %>" class="stretched-link"></a>
         </div>
       </div>
+    <% end %>
+    <% if @searched.count == 0 %>
+      <p><strong><%= params[:keyword] %></strong> に一致するユーザーは見つかりませんでした。</p>
     <% end %>
   </div>
 </main>

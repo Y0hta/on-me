@@ -81,3 +81,6 @@ gem 'refile-mini_magick'
 # ENV
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
+# Payment
+gem 'stripe'
+
