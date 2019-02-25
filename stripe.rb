@@ -2,7 +2,7 @@ require 'dotenv'
 Dotenv.load
 require "stripe"
 Stripe.api_key = ENV["STRIPE_TEST_SECRET_KEY"]
-connected_stripe_acct = "ac_Eafun2DL5X1UAXtKrfmvoImSfwLDjHCJ"
+connected_stripe_acct = "acct_1E7UXGA2NCw8FkEN"
 
 =begin
 acct = Stripe::Account.create({
