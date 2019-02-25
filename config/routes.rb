@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stripe/callback'
+  get 'stripe/payment_profile'
   #devise_for :users
   devise_for :users, :controllers => {
     sessions: 'users/sessions', 
@@ -14,4 +16,5 @@ Rails.application.routes.draw do
   get '/explore', to: 'explore#index'
   get '/settings', to: 'settings#edit', as: :edit_settings
   post '/settings/update', to: 'settings#update', as: :update_settings
+  get '/settings/payment-info/users/auth/stripe_connect/callback', to: 'stripe#callback'
 end

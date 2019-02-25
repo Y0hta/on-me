@@ -85,3 +85,5 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 # Payment
 gem 'stripe'
 
+# HTTP Client
+gem 'faraday'

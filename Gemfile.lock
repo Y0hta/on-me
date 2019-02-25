@@ -311,6 +311,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  faraday
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

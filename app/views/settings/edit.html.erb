@@ -29,11 +29,15 @@
     <div class="card bg-light shadow ml-3 my-5"> 
       <div class="card-body">
         <h5 class="ml-1">支払い方法</h5>
-        <a href="<%= @oauth_link %>" data-toggle="tooltip" data-placement="right" title="
+        <% if @user.stripe_id %>
+          <%= image_tag "stripe-logo-blue.png" %><p> Connected</p>
+        <% else %>
+          <a href="<%= @oauth_link %>" data-toggle="tooltip" data-placement="right" title="
           Stripeはオンライン決済のプラットフォームです。アカウント登録されていない方はこちらから登録してください。
           ">
-          <%= image_tag "light-on-light.png", class: "my-3" %>
-        </a>
+              <%= image_tag "light-on-light.png", class: "my-3" %>
+          </a>
+        <% end %>
         <br />
         <br />
         <br />
