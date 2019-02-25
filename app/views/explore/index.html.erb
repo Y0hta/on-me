@@ -10,7 +10,7 @@
     <div class="w-100"></div>
     <% @searched.each do |user| %>
       <div class="card col-md-3 mx-3 my-2 shadow-sm" style="width: 20rem;">
-        <div class="row no-gutters">
+        <div class="row no-gutters mt-2">
           <div class="col-md-4 ml-2">
             <div class="user-image my-3">
               <%= attachment_image_tag user, :image, :fill, 100, 100, :size => "60x60",  fallback: "no-user-image.jpg" %>
@@ -27,14 +27,20 @@
             </h6>
           </div>
           <div class="w-100"></div>
-          <p class="card-text ml-2 pb-2">
+          <div class="card-text ml-2">
             <% if user.introduction %>
-              <%= user.introduction %>
+              <% if user.introduction.length > 50 %>
+                <p><%= user.introduction[0,50] %> ...</p>
+              <% else %>
+                <p><%= user.introduction %></p>
+              <% end %>
             <% else %>
               <br />
+              <br />
+              <br />
             <% end %>
-          </p>
-          <a href="<%= user_path(user) %>" class="stretched-link"></a>
+          </div>
+          <a href="<%= user_path(user.id) %>" class="stretched-link"></a>
         </div>
       </div>
     <% end %>
