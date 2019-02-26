@@ -30,12 +30,16 @@
       <div class="card-body">
         <h5 class="ml-1">支払い方法</h5>
         <% if @user.stripe_id %>
-          <%= image_tag "stripe-logo-blue.png" %><p> Connected</p>
+          <%= image_tag "stripe-logo-blue.png", :size => "100x50" %>
+          <div class="d-inline-flex h5 mt-4"> 
+            <span class="badge badge-pill badge-success">接続済</span>
+            <a href="#" class="badge badge-info ml-2"><%= @acct["email"] %></a>
+          </div>
         <% else %>
           <a href="<%= @oauth_link %>" data-toggle="tooltip" data-placement="right" title="
           Stripeはオンライン決済のプラットフォームです。アカウント登録されていない方はこちらから登録してください。
           ">
-              <%= image_tag "light-on-light.png", class: "my-3" %>
+          <%= image_tag "light-on-light.png", class: "my-3" %>
           </a>
         <% end %>
         <br />
