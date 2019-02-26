@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/settings', to: 'settings#edit', as: :edit_settings
   post '/settings/update', to: 'settings#update', as: :update_settings
   post '/stripe/disconnect', to: 'stripe#disconnect', as: :disconnect_stripe_account
+  resources :charges, only: [:new, :create]
 end
