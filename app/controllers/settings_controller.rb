@@ -10,7 +10,6 @@ class SettingsController < ApplicationController
   def edit
     @user = current_user
     @oauth_link = ENV["STRIPE_OAUTH_LINK"]
-    @acct = Stripe::Account.retrieve(@user.stripe_id) if @user.stripe_id
 
     if params[:code] 
       # Callback
@@ -36,11 +35,11 @@ class SettingsController < ApplicationController
       if response.code == "200"
         res = JSON.parse(response.body)
         @user.update!(stripe_id: res["stripe_user_id"]) if res
-        flash[:notice] = "Your account has been successfully connected"
       else
-        flash[:notice] = "Bad request."
+        flash[:alert] = "Bad request."
       end
     end
+    @acct = Stripe::Account.retrieve(@user.stripe_id) if @user.stripe_id
   end
 
   def update
