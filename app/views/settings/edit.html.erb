@@ -26,7 +26,7 @@
         </button>
       </div>
     <% end %>
-    <div class="card bg-light shadow ml-3 my-5"> 
+    <div class="card shadow ml-3 my-5"> 
       <div class="card-body">
         <h5 class="ml-1">支払い方法</h5>
         <% if @user.stripe_id %>
@@ -61,4 +61,7 @@
       </div>
     </div>
   </div>
+  <% 20.times do |br| %>
+    <br />
+  <% end %>
 </main>

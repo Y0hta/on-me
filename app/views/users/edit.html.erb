@@ -25,11 +25,11 @@
       </div>
     <% end %>
     <div class="w-100"></div>
-    <div class="card bg-light shadow ml-3 my-5">
+    <div class="card shadow ml-3 my-5">
       <div class="card-body">
         <h3>User edit</h3>
         <!-- Form section -->
-        <%= form_with model: @user do |f| %>
+        <%= form_for @user do |f| %>
           <%= render "layouts/error_messages", model: f.object %>
           <div class="row">
             <div class="col-6 ml-3">

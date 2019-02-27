@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   attachment :image
 
+  validates :name, presence: true
   validates :email, presence: true
 
   # Search method
@@ -15,5 +16,10 @@ class User < ApplicationRecord
     else
       all
     end
+  end
+
+  # Generate token
+  def token
+    Digest::SHA1.hexdigest("#{self.created_at} - #{self.id}")[0,16]
   end
 end

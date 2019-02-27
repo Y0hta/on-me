@@ -11,7 +11,7 @@ class SettingsController < ApplicationController
     @user = current_user
     @oauth_link = ENV["STRIPE_OAUTH_LINK"]
 
-    if params[:code] 
+    if params[:code] && @user.stripe_id==nil
       # Callback
       authorization_code = params[:code]
 

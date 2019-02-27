@@ -102,7 +102,7 @@ function ProductHowItWorks(props) {
                   className={classes.image}
                 />
                 <Typography variant="h5" align="center">
-                  {'SNSなどで拡散してより声援を集めましょう！'}
+                  {'SNSなどで拡散してコーヒーを奢ってもらいましょう！'}
                 </Typography>
               </div>
             </Grid>

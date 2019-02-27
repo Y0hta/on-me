@@ -1,10 +1,10 @@
 <main class="container-fluid mt--7">
   <div class="row">
-    <div class="col-xl mb-5">
+    <div class="col">
       <div class="card card-profile shadow">
         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
         </div>
-        <div class="card-body pt-0 pt-md-4">
+        <div class="card-body pt-md-4">
           <div class="row justify-content-center">
             <div class="user-image">
               <%= attachment_image_tag @user, :image, :fill, 100, 100, :size => "100x100", fallback: "no-user-image.jpg", class: "shadow" %>
@@ -18,19 +18,44 @@
           <div class="h5 font-weight-300">
             <%= @user.occupation %>
           </div>
+          <hr class="my-4" />
           <p class="mx-5 my-4"><%= @user.introduction %></p>
         </div>
-        <hr class="my-4" />
-        <div class="row">
-          <div class="col ml-4">
-            <h4><%= @user.name %>にコーヒーを奢る</h4>
-          </div>
+      </div>
+    </div>
+    <div class="col ml-2">
+      <div class="card shadow">
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+        </div>
+        <div class="card-body pt-md-4 ml-4 mb-3">
+          <h5><strong><%= @user.name %></strong> にコーヒーを奢る</h5><br />
+          <!-- Stripe checkout form -->
+          <%= form_tag charges_path do %>
+            <article>
+              <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
+              <% end %>
+              <label class="amount">
+                <span>￥300 サポート</span>
+              </label>
+            </article>
+
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-label="カードで支払う"
+                data-name="<%= @user.name%> をサポートする"
+                data-amount="300"
+                data-locale="ja"
+                data-currency="jpy"
+                data-panel-label="{{amount}}のお支払い"></script>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  <% 12.times do |br| %>
+  <% 22.times do |br| %>
     <br />
   <% end %>
 </main>
