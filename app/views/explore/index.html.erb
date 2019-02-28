@@ -48,7 +48,9 @@
       <p><strong><%= params[:keyword] %></strong> に一致するユーザーは見つかりませんでした。</p>
     <% end %>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mb-5">
     <%= paginate @searched, class: "pagenate" %>
   </div>
+  <br>
+  <br>
 </main>

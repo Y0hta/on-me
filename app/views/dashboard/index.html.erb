@@ -95,6 +95,7 @@
         </div>
         <div class="card-body">
           <% if @transactions.exists? %>
+              <div id="transactions">
             <% @transactions.each do |transaction| %>
               <div class="card mx-4 my-4">
                 <div class="card-body pb-0">
@@ -112,6 +113,8 @@
                 </div>
               </div>
             <% end %>
+              </div>
+            <%= link_to_next_page @transactions, "more", remote: true, id: "more_link", class: "btn btn-light ml-4" %>
           <% else %>
             <p>コーヒー履歴がありません</p>
           <% end %>

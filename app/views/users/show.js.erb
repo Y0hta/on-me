@@ -1,0 +1,5 @@
+$("#transactions").append("<%= escape_javascript(render "transactions", object: @transactions) %>")
+$("#more_link").replaceWith("<%= escape_javascript(
+  link_to_next_page(@transactions, 'more', remote: true, id: 'more_link', class: "btn btn-light ml-4")
+) %>");
+

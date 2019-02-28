@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
   require "active_support/core_ext/numeric/conversions"
 
   def index
-    @transactions = Transaction.where(user_id: current_user.id)
+    @transactions = Transaction.where(user_id: current_user.id).page(params[:page]).per(3)
     sum = 0
     @transactions.each do |t|
       sum += t.amount
