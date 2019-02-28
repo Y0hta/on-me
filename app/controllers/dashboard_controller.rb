@@ -10,5 +10,6 @@ class DashboardController < ApplicationController
     
     @earning = sum.to_s(:delimited)
     @cups = sum/300
+    @page_views = current_user.impressionist_count.to_s(:delimited)
   end
 end

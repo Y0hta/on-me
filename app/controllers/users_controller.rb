@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @@user = @user
     @transactions = Transaction.where(user_id: @user.id)
+    impressionist(@user)
   end
 
   def edit
