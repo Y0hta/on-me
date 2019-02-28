@@ -48,14 +48,24 @@
               <%= f.text_area :customer_message, class: "form-control", placeholder: "Message" %>
             </div>
 
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-label="カードで支払う"
-                data-name="<%= @user.name%> をサポートする"
-                data-amount="300"
-                data-locale="ja"
-                data-currency="jpy"
-                data-panel-label="{{amount}}のお支払い"></script>
+            <% if @user != current_user && @user.stripe_id %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-label="カードで支払う"
+                  data-name="<%= @user.name%> をサポートする"
+                  data-amount="300"
+                  data-locale="ja"
+                  data-currency="jpy"
+                  data-panel-label="{{amount}}のお支払い"></script>
+            <% elsif !@user.stripe_id %>
+              <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="サポートを受けるにはStripeアカウントの設定が必要です。ダッシュボードの各種設定からアカウントの設定をしてください">
+                <button type="button" class="btn btn-primary" style="pointer-events: none;"  disabled>カードで支払う</button>
+              </span>
+            <% else %>
+              <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="自分自身に支払うことはできません">
+                <button type="button" class="btn btn-primary" style="pointer-events: none;"  disabled>カードで支払う</button>
+              </span>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -68,24 +78,32 @@
           </div>
         </div>
         <div class="card-body">
-          <% if @transactions %>
+          <% if @transactions.exists? %>
             <% @transactions.each do |transaction| %>
-              <p><%= transaction.customer_name %></p>
-              <p><%= transaction.customer_message %></p>
+              <div class="card mx-4 my-4">
+                <div class="card-body pb-0">
+                  <h5>
+                    <strong>
+                      <% if transaction.customer_name %>
+                        <%= transaction.customer_name %>
+                      <% else %>
+                        Someone
+                      <% end %>
+                    </strong>
+                    さんが <%= current_user.name %> にコーヒをおごりました
+                  </h5>
+                  <p class="text-muted pl-2"><%= transaction.customer_message %></p>
+                </div>
+              </div>
             <% end %>
           <% else %>
             <p>コーヒー履歴がありません</p>
           <% end %>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
         </div>
       </div>
     </div>
   </div>
-  <% 12.times do |br| %>
+  <% 15.times do |br| %>
     <br />
   <% end %>
 </main>

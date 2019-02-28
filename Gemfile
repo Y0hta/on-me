@@ -93,3 +93,6 @@ gem 'faraday'
 
 # Tracking
 gem 'impressionist'
+
+# Clipboard
+gem 'clipboard-rails'

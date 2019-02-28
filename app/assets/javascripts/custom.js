@@ -2,11 +2,13 @@
 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
-})
+});
 
-$(function () {
-  $('#request-ajax')
-    .on 'ajax:complete', (event) ->
-      response = event.detail[0].response
-      $('#updated-quantity-ajax').html(response)
-})
+// Clipboard
+$(document).ready(function(){
+
+  var clipboard = new Clipboard('.clipboard-btn');
+  console.log(clipboard);
+
+});
+

@@ -18,7 +18,8 @@
   </div>
   <div class="row my-5">
     <div class="col-lg-6">
-      <div class="card card-stats mb-4 mb-xl-0 shadow">
+      <!-- Pageview -->
+      <div class="card card-stats mb-xl-0 shadow">
         <div class="card-body">
           <div class="row">
             <div class="col">
@@ -37,8 +38,9 @@
         </div>
       </div>
     </div>
+    <!-- Earning -->
     <div class="col-lg-6">
-      <div class="card card-stats mb-4 mb-xl-0 shadow">
+      <div class="card card-stats mb-xl-0 shadow">
         <div class="card-body">
           <div class="row">
             <div class="col ml-2">
@@ -58,9 +60,32 @@
       </div>
     </div>
   </div>
+  <!-- Link -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class="col-9 ml-5">
+              <h5 class="card-title text-uppercase text-muted">マイページリンク</h5>
+              <h1 id="bar" class="form-control " readonly>
+                localhost:3000/users/<%= current_user.id %>
+              </h1>
+            </div>
+            <div class="col mt-3 pt-3 mr-5">
+              <button class="clipboard-btn btn btn-warning text-white" data-clipboard-action="copy" data-clipboard-target="#bar">
+                コピー
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Transaction -->
   <div class="row">
     <div class="col-xl">
-      <div class="card shadow">
+      <div class="card shadow my-4">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
@@ -69,11 +94,27 @@
           </div>
         </div>
         <div class="card-body">
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
+          <% if @transactions.exists? %>
+            <% @transactions.each do |transaction| %>
+              <div class="card mx-4 my-4">
+                <div class="card-body pb-0">
+                  <h5>
+                    <strong>
+                      <% if transaction.customer_name %>
+                        <%= transaction.customer_name %>
+                      <% else %>
+                        Someone
+                      <% end %>
+                    </strong>
+                    さんが <%= current_user.name %> にコーヒをおごりました
+                  </h5>
+                  <p class="text-muted pl-2"><%= transaction.customer_message %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p>コーヒー履歴がありません</p>
+          <% end %>
         </div>
       </div>
     </div>

@@ -16,5 +16,6 @@
 //= require popper
 //= requrie bootstrap-sprockets
 //= require custom
+//= require clipboard
 //= require_tree .
 
