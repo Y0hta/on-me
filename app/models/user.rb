@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   attachment :image
+  
+  has_many :transactions, dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true

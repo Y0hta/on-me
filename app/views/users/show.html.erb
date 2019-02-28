@@ -27,20 +27,26 @@
       <div class="card shadow">
         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
         </div>
-        <div class="card-body pt-md-4 ml-4 mb-3">
+        <div class="card-body pt-md-4 mx-4 mb-3">
           <h5><strong><%= @user.name %></strong> にコーヒーを奢る</h5><br />
           <!-- Stripe checkout form -->
-          <%= form_tag charges_path do %>
+          <%= form_with url: charges_path do |f| %>
             <article>
               <% if flash[:error].present? %>
                 <div id="error_explanation">
                   <p><%= flash[:error] %></p>
                 </div>
               <% end %>
-              <label class="amount">
-                <span>￥300 サポート</span>
-              </label>
             </article>
+
+            <div class="row">
+            </div>
+            <div class="form-group">
+              <%= f.text_field :customer_name, class: "form-control", placeholder: "Name" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_area :customer_message, class: "form-control", placeholder: "Message" %>
+            </div>
 
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -53,9 +59,33 @@
           <% end %>
         </div>
       </div>
+      <div class="card shadow my-4">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="text-uppercase text-muted ls-1 mb-1">コーヒー履歴</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <% if @transactions %>
+            <% @transactions.each do |transaction| %>
+              <p><%= transaction.customer_name %></p>
+              <p><%= transaction.customer_message %></p>
+            <% end %>
+          <% else %>
+            <p>コーヒー履歴がありません</p>
+          <% end %>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
     </div>
   </div>
-  <% 22.times do |br| %>
+  <% 12.times do |br| %>
     <br />
   <% end %>
 </main>

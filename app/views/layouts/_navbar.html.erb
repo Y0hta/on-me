@@ -5,11 +5,11 @@
     <div class="mx-auto order-0">
       <% if user_signed_in? %>
         <a class="navbar-brand mx-auto font-weight-bold" href="/dashboard">
-          GIVE ME A TREAT
+          On Me
         </a>
       <% else %>
         <a class="navbar-brand mx-auto font-weight-bold" href="<%= root_path %>">
-          GIVE ME A TREAT
+          On Me
         </a>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,11 +35,13 @@
             <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.name %>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/dashboard">ダッシュボード</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item d-inline-flex" href="/dashboard">
+                <i class="material-icons mr-1">dashboard</i>ダッシュボード
+              </a>
               <div class="dropdown-divider"></div>
-              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
-            <span>ログアウト</span>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item d-inline-flex" do %>
+            <i class="material-icons mr-1">exit_to_app</i><span>ログアウト</span>
           <% end %>
             </div>
           </li>

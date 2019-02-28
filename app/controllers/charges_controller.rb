@@ -7,6 +7,14 @@ class ChargesController < UsersController
     @amount = 300
     user = @@user
     acct = user.stripe_id
+    @transaction = Transaction.new
+    
+    @transaction.user_id = user.id
+    @transaction.amount = @amount
+    @transaction.customer_name = params[:customer_name] if params[:customer_name]
+    @transaction.customer_message = params[:customer_message] if params[:customer_message]
+
+    @transaction.save
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],

@@ -26,7 +26,8 @@
               <span class="h2 font-weight-bold mb-0">350,897</span>
             </div>
             <div class="col-auto">
-              <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+              <div class="icon bg-success text-white rounded-circle text-center" style="width: 54px; height: 54px;">
+                <i class="material-icons md-36 pt-2">assessment</i>
               </div>
             </div>
           </div>
@@ -40,17 +41,18 @@
       <div class="card card-stats mb-4 mb-xl-0 shadow">
         <div class="card-body">
           <div class="row">
-            <div class="col">
+            <div class="col ml-2">
               <h5 class="card-title text-uppercase text-muted mb-1">Earning</h5>
-              <span class="h2 font-weight-bold mb-0">￥1,200</span>
+              <span class="h2 font-weight-bold mb-0">￥<%= @earning %></span>
             </div>
             <div class="col-auto">
-              <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+              <div class="icon bg-danger text-white rounded-circle text-center" style="width: 54px; height: 54px;">
+                <i class="material-icons md-36 pt-2">account_balance_wallet</i>
               </div>
             </div>
           </div>
-          <p class="mt-2 mb-0 text-muted text-sm">
-          <span class="text-nowrap">コーヒー X 杯</span>
+          <p class="mt-2 mb-0 text-muted text-sm ml-2">
+          <span class="text-nowrap">コーヒー <%= @cups %> 杯</span>
           </p>
         </div>
       </div>

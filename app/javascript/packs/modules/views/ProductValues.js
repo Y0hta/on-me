@@ -80,7 +80,7 @@ function ProductValues(props) {
                 新たなクリエイターを
               </Typography>
               <Typography variant="h5">
-                {'Give Me a Treatでは新たなクリエイターを探すこともできます。お気に入りのクリエイターを見つけて、サポートしましょう！'}
+                {'On Me では新たなクリエイターを探すこともできます。お気に入りのクリエイターを見つけて、サポートしましょう！'}
               </Typography>
             </div>
           </Grid>
