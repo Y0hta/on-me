@@ -3,13 +3,13 @@
     <div class="card-body pb-0">
       <h5>
         <strong>
-          <% if transaction.customer_name %>
+          <% if transaction.customer_name && transaction.cutomer_name != ""  %>
             <%= transaction.customer_name %>
           <% else %>
             Someone
           <% end %>
         </strong>
-        さんが <%= current_user.name %> にコーヒをおごりました
+        さんが <%= @user.name %> にコーヒをおごりました
       </h5>
       <p class="text-muted pl-2"><%= transaction.customer_message %></p>
     </div>
