@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook twitter google_oauth2]
+         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   attachment :image
   
@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+  validates :introduction, length: {maximum: 200}
 
   is_impressionable
 

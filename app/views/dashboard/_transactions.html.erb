@@ -3,7 +3,7 @@
     <div class="card-body pb-0">
       <h5>
         <strong>
-          <% if transaction.customer_name %>
+          <% if transaction.customer_name && transaction.customer_name != "" %>
             <%= transaction.customer_name %>
           <% else %>
             Someone

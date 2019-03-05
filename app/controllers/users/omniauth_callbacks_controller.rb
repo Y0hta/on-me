@@ -5,9 +5,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   # Callback for twitter
-  def twitter
-    callback_for(:twitter)
-  end
+  # def twitter
+  #   callback_for(:twitter)
+  # end
 
   # Callback for facebook
   def facebook
