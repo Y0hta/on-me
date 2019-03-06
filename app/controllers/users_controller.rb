@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @@user = @user
-    @transactions = Transaction.where(user_id: @user.id).page(params[:page]).per(3)
+    @transactions = Transaction.where(user_id: @user.id).reverse_order.page(params[:page]).per(3)
     impressionist(@user)
   end
 
