@@ -111,3 +111,4 @@ gem 'clipboard-rails'
 #  gem 'unicorn'
 #end
 
+gem 'newrelic_rpm'
