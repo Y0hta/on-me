@@ -21,10 +21,6 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: sqlite3
-  encoding: utf8
-  database: on_me_production
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  username: root
-  password:
-  host: localhost
