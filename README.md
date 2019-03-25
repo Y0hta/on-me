@@ -1,24 +1,12 @@
-# README
+# Rails Portfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+手軽にクリエイターにコーヒー代を奢ることができるサイトを作りました。現在はテスト環境で動かしているので、実際に決済が行われることはありません。
 
-Things you may want to cover:
+## Technologies
 
-* Ruby version
+- Rails 5.2
+- Ruby 2.5
+- Bootstrap 4
+- Stripe API (connect)
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
